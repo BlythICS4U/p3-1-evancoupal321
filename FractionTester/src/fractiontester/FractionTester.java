@@ -1,5 +1,12 @@
 package fractiontester;
 
+
+/**
+ * Fraction Tester allows the use to input fractions in a
+ * variety of ways and perform operations on them.
+ * 
+ * @author Evan Coupal
+ */
 public class FractionTester {
 
     public static void blankLine() {
@@ -36,7 +43,7 @@ public class FractionTester {
 
         blankLine();
 
-        //USING METHODS THAT CREATE AND RETURN NEW FRACTION OBJECTS: reciprocal(), multiply(), add(), power()
+        //USING METHODS THAT CREATE AND RETURN NEW FRACTION OBJECTS: reciprocal(), multiply(), power(), add()
         Fraction oneOverF = f.reciprocal();
         oneOverF.setLabel("1 / f");
         oneOverF.display();
@@ -57,38 +64,55 @@ public class FractionTester {
         fSquared.setLabel("f^2");
         fSquared.display();
 
-        Fraction fCubed = fSquared.multiply(f); //COULD ALSO CALL f.power(3) ONCE YOU'VE CODED power()
+        Fraction fCubed = f.power(3);
         fCubed.setLabel("f^3");
         fCubed.display();
         double fCubedDecimal = fCubed.toDecimal();
         System.out.println("f^3 is equivalent to " + fCubedDecimal);
 
         blankLine();
-
-        //CODE THE power() METHOD
-        //Fraction fToTheFour = f.power(4);
-        //fToTheFour.setLabel("f^4");
-        //fToTheFour.display();
         
-        //CODE THE add() METHOD
-        //Fraction sumFG = f.add(g);
-        //sumFG.setLabel("f + g");
-        //sumFG.display();
+        Fraction fToTheFour = f.power(4);
+        fToTheFour.setLabel("f^4");
+        fToTheFour.display();
+        
+        blankLine();
+        
+        Fraction sumFG = f.add(g);
+        sumFG.setLabel("f + g");
+        sumFG.display();
+        blankLine();
+        
+        Fraction divideFG = f.divide(g);
+        divideFG.setLabel("f / g");
+        divideFG.display();
+        blankLine();
+        
         
         //USING STATIC METHODS OF THE FRACTION CLASS: getGCD AND getLCM
         //STATIC MEANS THAT THE METHOD DOESN'T WORK WITH ANY PARTICULAR FRACTION OBJECT
         //THAT IS, THE METHOD BELONGS TO THE CLASS AS A WHOLE, AND NOT TO ANY PARTICULAR OBJECT OF THAT CLASS.
         //STATIC METHODS ARE CALLED INSIDE main() USING THE SYNTAX Fraction.staticMethodName() INSTEAD OF f.methodName() WHERE f IS SOME FRACTION OBJECT
         int gcd = Fraction.getGCD(12, 15);
-        int lcm = Fraction.getLCM(12, 15); //CODE THE getLCM() METHOD
+        int lcm = Fraction.getLCM(12, 15);
 
         System.out.println("The GCD of 12 and 15 is " + gcd + ", and their LCM is " + lcm + "\n");
-
-        //CODE THIS 3RD VERSION OF THE CONSTRUCTOR SO THAT h GETS SET TO THE FRACTION 1/8 AND i GETS SET TO THE FRACTION 5/2.
-        //Fraction h = new Fraction(0.125); 
-        //Fraction i = new Fraction(2.5); 
-        //h.display();
-        //i.display();
+        
+        blankLine();
+        
+        //Using the constructors of the Fraction class, create fraction in unique ways and display them.
+        Fraction k = new Fraction(2.4, "k");
+        Fraction m = new Fraction("18/5");
+        k.display();
+        Fraction kPlusM = m.add(k);
+        kPlusM.display();
+        
+        blankLine();
+        
+        Fraction h = new Fraction(0.125, "h"); 
+        Fraction i = new Fraction(2.5, "i"); 
+        h.display();
+        i.display();
     }
 
 }
